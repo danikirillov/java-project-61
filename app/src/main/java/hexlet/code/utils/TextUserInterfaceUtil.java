@@ -1,6 +1,6 @@
 package hexlet.code.utils;
 
-public class TextUserInterfaceUtil {
+public final class TextUserInterfaceUtil {
     public static void congratulateUser(String name) {
         System.out.printf("Congratulations, %s!%n", name);
     }

@@ -8,7 +8,7 @@ import static hexlet.code.utils.TextUserInterfaceUtil.congratulateUser;
 import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
-public class Even implements Game {
+public final class Even implements Game {
 
     @Override
     public void play(String username) {
@@ -18,7 +18,8 @@ public class Even implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            var randomNumber = RANDOM.nextInt(100);
+            final var bound = 100;
+            var randomNumber = RANDOM.nextInt(bound);
             System.out.printf("Question: %d%nYour answer: ", randomNumber);
             var answer = sc.next();
 

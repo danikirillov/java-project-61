@@ -9,7 +9,7 @@ import static hexlet.code.utils.TextUserInterfaceUtil.congratulateUser;
 import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
-public class Progression implements Game {
+public final class Progression implements Game {
 
     @Override
     public void play(String username) {
@@ -19,9 +19,16 @@ public class Progression implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            var first = RANDOM.nextInt(-30, 30);
-            var step = RANDOM.nextInt(1, 30);
-            var length = RANDOM.nextInt(5, 10);
+            final var firstNumberLowerBound = -30;
+            final var firstNumberUpperBound = 30;
+            final var stepLowerBound = 1;
+            final var stepUpperBound = 30;
+            final var lengthLowerBound = 5;
+            final var lengthUpperBound = 10;
+
+            var first = RANDOM.nextInt(firstNumberLowerBound, firstNumberUpperBound);
+            var step = RANDOM.nextInt(stepLowerBound, stepUpperBound);
+            var length = RANDOM.nextInt(lengthLowerBound, lengthUpperBound);
             var position = RANDOM.nextInt(length);
             var progression = createProgression(first, step, length, position);
 

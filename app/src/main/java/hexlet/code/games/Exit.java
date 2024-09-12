@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Exit implements Game {
+public final class Exit implements Game {
 
     @Override
     public void play(String username) {

@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-public class Greet implements Game {
+public final class Greet implements Game {
     @Override
     public void play(String username) {
     }

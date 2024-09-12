@@ -9,7 +9,7 @@ import static hexlet.code.utils.TextUserInterfaceUtil.congratulateUser;
 import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
-public class Prime implements Game {
+public final class Prime implements Game {
     private static final int PRIME_CERTAINTY = 10;
 
     @Override
@@ -20,7 +20,8 @@ public class Prime implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            var probablyPrime = RANDOM.nextInt(340);
+            final var bound = 340;
+            var probablyPrime = RANDOM.nextInt(bound);
             System.out.printf("Question: %d%nYour answer: ", probablyPrime);
 
             var answer = sc.next();

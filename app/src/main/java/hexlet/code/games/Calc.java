@@ -8,7 +8,7 @@ import static hexlet.code.utils.TextUserInterfaceUtil.congratulateUser;
 import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
-public class Calc implements Game {
+public final class  Calc implements Game {
 
     private static final String[] SIGNS = {"+", "-", "*"};
 
@@ -20,8 +20,9 @@ public class Calc implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            var firstNumber = RANDOM.nextInt(100);
-            var secondNumber = RANDOM.nextInt(100);
+            final var bound = 100;
+            var firstNumber = RANDOM.nextInt(bound);
+            var secondNumber = RANDOM.nextInt(bound);
             var sign = SIGNS[RANDOM.nextInt(SIGNS.length)];
 
             System.out.printf(
