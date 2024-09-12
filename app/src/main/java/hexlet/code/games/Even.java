@@ -9,6 +9,7 @@ import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
 public final class Even implements Game {
+    private static final int RANDOM_NUMBERS_BOUND = 100;
 
     @Override
     public void play(String username) {
@@ -18,12 +19,11 @@ public final class Even implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            final var bound = 100;
-            var randomNumber = RANDOM.nextInt(bound);
+            var randomNumber = RANDOM.nextInt(RANDOM_NUMBERS_BOUND);
             System.out.printf("Question: %d%nYour answer: ", randomNumber);
             var answer = sc.next();
 
-            var correctAnswer = randomNumber % 2 == 0 ? "yes" : "no";
+            var correctAnswer = compute(randomNumber);
             if (correctAnswer.equals(answer)) {
                 printCorrectAnswerMessage();
                 ++attempt;
@@ -34,6 +34,10 @@ public final class Even implements Game {
         }
 
         congratulateUser(username);
+    }
+
+    private static String compute(int randomNumber) {
+        return randomNumber % 2 == 0 ? "yes" : "no";
     }
 
     @Override

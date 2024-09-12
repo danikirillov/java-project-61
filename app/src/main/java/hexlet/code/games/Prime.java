@@ -11,6 +11,7 @@ import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
 public final class Prime implements Game {
     private static final int PRIME_CERTAINTY = 10;
+    private static final int RANDOM_NUMBERS_BOUND = 340;
 
     @Override
     public void play(String username) {
@@ -20,13 +21,12 @@ public final class Prime implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            final var bound = 340;
-            var probablyPrime = RANDOM.nextInt(bound);
+            var probablyPrime = RANDOM.nextInt(RANDOM_NUMBERS_BOUND);
             System.out.printf("Question: %d%nYour answer: ", probablyPrime);
 
             var answer = sc.next();
 
-            var correctAnswer = isProbablePrime(probablyPrime) ? "yes" : "no";
+            var correctAnswer = compute(probablyPrime);
             if (correctAnswer.equals(answer)) {
                 printCorrectAnswerMessage();
                 ++attempt;
@@ -37,6 +37,10 @@ public final class Prime implements Game {
         }
 
         congratulateUser(username);
+    }
+
+    private static String compute(int probablyPrime) {
+        return isProbablePrime(probablyPrime) ? "yes" : "no";
     }
 
     private static boolean isProbablePrime(int probablyPrime) {

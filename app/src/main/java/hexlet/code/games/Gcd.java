@@ -10,6 +10,9 @@ import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
 public final class Gcd implements Game {
+    private static final int GCD_LOWER_BOUND = 1;
+    private static final int GCD_UPPER_BOUND = 8;
+    private static final int RANDOM_NUMBER_BOUND = 13;
 
     @Override
     public void play(String username) {
@@ -19,12 +22,9 @@ public final class Gcd implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            final var gcdLowerBound = 1;
-            final var gcdUpperBound = 8;
-            final var numberBound = 13;
-            var possibleGcd = RANDOM.nextInt(gcdLowerBound, gcdUpperBound);
-            var firstNumber = RANDOM.nextInt(numberBound) * possibleGcd;
-            var secondNumber = RANDOM.nextInt(numberBound) * possibleGcd;
+            var possibleGcd = RANDOM.nextInt(GCD_LOWER_BOUND, GCD_UPPER_BOUND);
+            var firstNumber = RANDOM.nextInt(RANDOM_NUMBER_BOUND) * possibleGcd;
+            var secondNumber = RANDOM.nextInt(RANDOM_NUMBER_BOUND) * possibleGcd;
 
             System.out.printf(
                 "Question: %d %d%nYour answer: ",

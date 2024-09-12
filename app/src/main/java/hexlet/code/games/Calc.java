@@ -8,9 +8,10 @@ import static hexlet.code.utils.TextUserInterfaceUtil.congratulateUser;
 import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
-public final class  Calc implements Game {
+public final class Calc implements Game {
 
     private static final String[] SIGNS = {"+", "-", "*"};
+    private static final int RANDOM_NUMBERS_BOUND = 100;
 
     @Override
     public void play(String username) {
@@ -20,9 +21,8 @@ public final class  Calc implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            final var bound = 100;
-            var firstNumber = RANDOM.nextInt(bound);
-            var secondNumber = RANDOM.nextInt(bound);
+            var firstNumber = RANDOM.nextInt(RANDOM_NUMBERS_BOUND);
+            var secondNumber = RANDOM.nextInt(RANDOM_NUMBERS_BOUND);
             var sign = SIGNS[RANDOM.nextInt(SIGNS.length)];
 
             System.out.printf(

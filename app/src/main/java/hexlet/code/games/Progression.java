@@ -10,6 +10,12 @@ import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
 public final class Progression implements Game {
+    private static final int FIRST_NUMBER_LOWER_BOUND = -30;
+    private static final int FIRST_NUMBER_UPPER_BOUND = 30;
+    private static final int STEP_LOWER_BOUND = 1;
+    private static final int STEP_UPPER_BOUND = 30;
+    private static final int LENGTH_LOWER_BOUND = 5;
+    private static final int LENGTH_UPPER_BOUND = 10;
 
     @Override
     public void play(String username) {
@@ -19,16 +25,9 @@ public final class Progression implements Game {
         var sc = new Scanner(System.in);
 
         while (attempt < MAX_ROUNDS_AMOUNT) {
-            final var firstNumberLowerBound = -30;
-            final var firstNumberUpperBound = 30;
-            final var stepLowerBound = 1;
-            final var stepUpperBound = 30;
-            final var lengthLowerBound = 5;
-            final var lengthUpperBound = 10;
-
-            var first = RANDOM.nextInt(firstNumberLowerBound, firstNumberUpperBound);
-            var step = RANDOM.nextInt(stepLowerBound, stepUpperBound);
-            var length = RANDOM.nextInt(lengthLowerBound, lengthUpperBound);
+            var first = RANDOM.nextInt(FIRST_NUMBER_LOWER_BOUND, FIRST_NUMBER_UPPER_BOUND);
+            var step = RANDOM.nextInt(STEP_LOWER_BOUND, STEP_UPPER_BOUND);
+            var length = RANDOM.nextInt(LENGTH_LOWER_BOUND, LENGTH_UPPER_BOUND);
             var position = RANDOM.nextInt(length);
             var progression = createProgression(first, step, length, position);
 
