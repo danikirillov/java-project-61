@@ -6,6 +6,7 @@ import hexlet.code.games.Exit;
 import hexlet.code.games.Game;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Greet;
+import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
 import java.util.Random;
@@ -19,13 +20,15 @@ public class App {
         new Even(),
         new Calc(),
         new Gcd(),
-        new Progression()
+        new Progression(),
+        new Prime()
     };
 
     public static void main(String[] args) {
         var gameId = Cli.selectGame(GAME_ID_TO_GAME);
         if (gameId >= GAME_ID_TO_GAME.length || gameId <= 0) {
             GAME_ID_TO_GAME[0].play("");
+            return;
         }
 
         var name = Cli.getUserName();

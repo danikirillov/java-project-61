@@ -13,7 +13,7 @@ public class Progression implements Game {
 
     @Override
     public void play(String username) {
-        System.out.println("What is the result of the expression?");
+        System.out.println("What number is missing in the progression?");
 
         var attempt = 0;
         var sc = new Scanner(System.in);

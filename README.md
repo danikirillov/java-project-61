@@ -10,3 +10,5 @@
 [![asciicast](https://asciinema.org/a/fMRoBUk9N7tssDGZwNPU1HLoh.svg)](https://asciinema.org/a/fMRoBUk9N7tssDGZwNPU1HLoh)
 ### Asciinema from the 8th step (Progression game)
 [![asciicast](https://asciinema.org/a/tWyXiv3qxSe0zkqLfexSx8lDo.svg)](https://asciinema.org/a/tWyXiv3qxSe0zkqLfexSx8lDo)
+### Asciinema from the 9th step (Prime game)
+[![asciicast](https://asciinema.org/a/GLnYvBQdrGnUPGih0EBsIugEe.svg)](https://asciinema.org/a/GLnYvBQdrGnUPGih0EBsIugEe)

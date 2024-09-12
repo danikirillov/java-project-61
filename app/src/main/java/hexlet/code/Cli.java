@@ -19,7 +19,7 @@ public class Cli {
         System.out.print(selectGameText);
 
         var sc = new Scanner(System.in);
-        var gameId = sc.nextInt();
+        var gameId = sc.hasNextInt() ? sc.nextInt() : 0;
 
         System.out.println();
         return gameId;
