@@ -8,3 +8,5 @@
 [![asciicast](https://asciinema.org/a/9tSeXM9xt9HOtPs4ZEsf4cJjf.svg)](https://asciinema.org/a/9tSeXM9xt9HOtPs4ZEsf4cJjf)
 ### Asciinema from the 7th step (GCD game)
 [![asciicast](https://asciinema.org/a/fMRoBUk9N7tssDGZwNPU1HLoh.svg)](https://asciinema.org/a/fMRoBUk9N7tssDGZwNPU1HLoh)
+### Asciinema from the 8th step (Progression game)
+[![asciicast](https://asciinema.org/a/tWyXiv3qxSe0zkqLfexSx8lDo.svg)](https://asciinema.org/a/tWyXiv3qxSe0zkqLfexSx8lDo)
