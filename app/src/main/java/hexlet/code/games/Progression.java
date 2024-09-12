@@ -1,11 +1,11 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
 import java.util.StringJoiner;
 
 import static hexlet.code.App.MAX_ROUNDS_AMOUNT;
 import static hexlet.code.App.RANDOM;
 import static hexlet.code.utils.TextUserInterfaceUtil.congratulateUser;
+import static hexlet.code.utils.TextUserInterfaceUtil.getUserAnswer;
 import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
 import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
@@ -22,20 +22,15 @@ public final class Progression implements Game {
         System.out.println("What number is missing in the progression?");
 
         var attempt = 0;
-        var sc = new Scanner(System.in);
-
         while (attempt < MAX_ROUNDS_AMOUNT) {
             var first = RANDOM.nextInt(FIRST_NUMBER_LOWER_BOUND, FIRST_NUMBER_UPPER_BOUND);
             var step = RANDOM.nextInt(STEP_LOWER_BOUND, STEP_UPPER_BOUND);
             var length = RANDOM.nextInt(LENGTH_LOWER_BOUND, LENGTH_UPPER_BOUND);
             var position = RANDOM.nextInt(length);
             var progression = createProgression(first, step, length, position);
-
-            System.out.printf("Question: %s%nYour answer: ", progression);
-
-            var answer = sc.next();
-
             var correctAnswer = compute(first, step, position);
+
+            var answer = getUserAnswer(progression);
             if (correctAnswer.equals(answer)) {
                 printCorrectAnswerMessage();
                 ++attempt;

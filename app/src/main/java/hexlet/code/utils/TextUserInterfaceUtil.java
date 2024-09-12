@@ -1,5 +1,7 @@
 package hexlet.code.utils;
 
+import java.util.Scanner;
+
 public final class TextUserInterfaceUtil {
     public static void congratulateUser(String name) {
         System.out.printf("Congratulations, %s!%n", name);
@@ -16,5 +18,11 @@ public final class TextUserInterfaceUtil {
             correctAnswer,
             name
         );
+    }
+
+    public static String getUserAnswer(String question) {
+        var sc = new Scanner(System.in);
+        System.out.printf("Question: %s%nYour answer: ", question);
+        return sc.next();
     }
 }
