@@ -6,3 +6,5 @@
 [![asciicast](https://asciinema.org/a/p0REp8GqXF4CwRXXvmA4eKE0w.svg)](https://asciinema.org/a/p0REp8GqXF4CwRXXvmA4eKE0w)
 ### Asciinema from the 6th step (Calc game)
 [![asciicast](https://asciinema.org/a/9tSeXM9xt9HOtPs4ZEsf4cJjf.svg)](https://asciinema.org/a/9tSeXM9xt9HOtPs4ZEsf4cJjf)
+### Asciinema from the 7th step (GCD game)
+[![asciicast](https://asciinema.org/a/fMRoBUk9N7tssDGZwNPU1HLoh.svg)](https://asciinema.org/a/fMRoBUk9N7tssDGZwNPU1HLoh)

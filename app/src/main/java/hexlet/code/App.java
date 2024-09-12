@@ -4,6 +4,7 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.Exit;
 import hexlet.code.games.Game;
+import hexlet.code.games.Gcd;
 import hexlet.code.games.Greet;
 
 import java.util.Random;
@@ -15,7 +16,8 @@ public class App {
         new Exit(),
         new Greet(),
         new Even(),
-        new Calc()
+        new Calc(),
+        new Gcd()
     };
 
     public static void main(String[] args) {
