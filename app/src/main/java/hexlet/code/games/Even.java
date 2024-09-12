@@ -1,18 +1,23 @@
 package hexlet.code.games;
 
-import java.util.Random;
 import java.util.Scanner;
 
-public class Even {
-    private static final Random RANDOM = new Random();
+import static hexlet.code.App.MAX_ROUNDS_AMOUNT;
+import static hexlet.code.App.RANDOM;
+import static hexlet.code.utils.TextUserInterfaceUtil.congratulateUser;
+import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
+import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
 
-    public static void play(String name) {
+public class Even implements Game {
+
+    @Override
+    public void play(String username) {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        var threeInRow = 0;
+        var attempt = 0;
         var sc = new Scanner(System.in);
 
-        while (threeInRow != 3) {
+        while (attempt < MAX_ROUNDS_AMOUNT) {
             var randomNumber = RANDOM.nextInt(100);
             System.out.printf("Question: %d%nYour answer: ", randomNumber);
             var answer = sc.next();
@@ -20,31 +25,19 @@ public class Even {
             var correctAnswer = randomNumber % 2 == 0 ? "yes" : "no";
             if (correctAnswer.equals(answer)) {
                 printCorrectAnswerMessage();
-                ++threeInRow;
+                ++attempt;
             } else {
-                printWrongAnswerMessage(answer, correctAnswer, name);
-                threeInRow = 0;
+                printWrongAnswerMessage(answer, correctAnswer, username);
+                return;
             }
         }
 
-        congratulateUser(name);
-
+        congratulateUser(username);
     }
 
-    private static void congratulateUser(String name) {
-        System.out.printf("Congratulations, %s!%n", name);
+    @Override
+    public String getName() {
+        return "Even";
     }
 
-    private static void printCorrectAnswerMessage() {
-        System.out.println("Correct!");
-    }
-
-    private static void printWrongAnswerMessage(String answer, String correctAnswer, String name) {
-        System.out.printf(
-            "'%s' is wrong answer ;(. Correct answer was '%s'.%nLet's try again, %s!%n",
-            answer,
-            correctAnswer,
-            name
-        );
-    }
 }

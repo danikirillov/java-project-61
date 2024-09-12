@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.Game;
+
 import java.util.Scanner;
 
 public class Cli {
@@ -12,8 +14,8 @@ public class Cli {
         return name;
     }
 
-    public static int selectGame(String[] gameIdToDescription) {
-        var selectGameText = createSelectGameText(gameIdToDescription);
+    public static int selectGame(Game[] gameIdToGame) {
+        var selectGameText = createSelectGameText(gameIdToGame);
         System.out.print(selectGameText);
 
         var sc = new Scanner(System.in);
@@ -23,13 +25,13 @@ public class Cli {
         return gameId;
     }
 
-    private static String createSelectGameText(String[] gameIdToDescription) {
+    private static String createSelectGameText(Game[] gameIdToGame) {
         var selectTextBuilder = new StringBuilder("Please enter the game number and press Enter.\n");
-        for (int gameId = gameIdToDescription.length - 1; gameId >= 0; --gameId) {
+        for (int gameId = gameIdToGame.length - 1; gameId >= 0; --gameId) {
             selectTextBuilder
                 .append(gameId)
                 .append(" - ")
-                .append(gameIdToDescription[gameId])
+                .append(gameIdToGame[gameId].getName())
                 .append("\n");
         }
         selectTextBuilder.append("Your choice: ");

@@ -1,22 +1,30 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Exit;
+import hexlet.code.games.Game;
+import hexlet.code.games.Greet;
+
+import java.util.Random;
 
 public class App {
-    private static final String[] GAME_ID_TO_DESCRIPTION = {
-        "Exit",
-        "Greet",
-        "Even"
+    public static final int MAX_ROUNDS_AMOUNT = 3;
+    public static final Random RANDOM = new Random();
+    private static final Game[] GAME_ID_TO_GAME = {
+        new Exit(),
+        new Greet(),
+        new Even(),
+        new Calc()
     };
 
     public static void main(String[] args) {
-        var gameNumber = Cli.selectGame(GAME_ID_TO_DESCRIPTION);
-
-        var name = gameNumber > 0 ? Cli.getUserName() : null;
-
-        switch (gameNumber) {
-            case 2 -> Even.play(name);
-            default -> System.out.println("Bye bye");
+        var gameId = Cli.selectGame(GAME_ID_TO_GAME);
+        if (gameId >= GAME_ID_TO_GAME.length || gameId <= 0) {
+            GAME_ID_TO_GAME[0].play("");
         }
+
+        var name = Cli.getUserName();
+        GAME_ID_TO_GAME[gameId].play(name);
     }
 }
