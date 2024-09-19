@@ -2,31 +2,45 @@ package hexlet.code;
 
 import hexlet.code.games.Game;
 
-import static hexlet.code.utils.TextUserInterfaceUtil.congratulateUser;
-import static hexlet.code.utils.TextUserInterfaceUtil.getUserAnswer;
-import static hexlet.code.utils.TextUserInterfaceUtil.printCorrectAnswerMessage;
-import static hexlet.code.utils.TextUserInterfaceUtil.printWrongAnswerMessage;
+import java.util.Scanner;
 
 public final class Engine {
 
-    public static void play(Game game, String username) {
+    public static void play(Game game) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        var sc = new Scanner(System.in);
+        var username = sc.next();
+        System.out.println("Hello, " + username + "!");
+
+        if ("Greet".equals(game.getName())) {
+            return;
+        }
+
         System.out.println(game.getDescription());
 
         var attempt = 0;
         while (attempt < game.getMaxAttempts()) {
             var qna = game.getQuestionAndAnswer();
 
-            var answer = getUserAnswer(qna.question());
+            System.out.printf("Question: %s%nYour answer: ", qna.question());
+            var answer = sc.next();
+
             if (qna.correctAnswer().equals(answer)) {
-                printCorrectAnswerMessage();
+                System.out.println("Correct!");
                 ++attempt;
             } else {
-                printWrongAnswerMessage(answer, qna.correctAnswer(), username);
+                System.out.printf(
+                    "'%s' is wrong answer ;(. Correct answer was '%s'.%nLet's try again, %s!%n",
+                    answer,
+                    qna.correctAnswer(),
+                    username
+                );
                 return;
             }
         }
 
-        congratulateUser(username);
+        System.out.printf("Congratulations, %s!%n", username);
     }
 
 }
